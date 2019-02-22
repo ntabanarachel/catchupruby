@@ -1,0 +1,23 @@
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">My Value My Proffetionnal</h1>
+    <p class="lead">Now You Can Found Your Favorite Movies.
+      please click On the Image Below To see Your Movie
+
+    </p>
+     <p><%= link_to "Sign Up To Add new Movie", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+</div>
+ <% end %>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+    </div>
+  </div>
+
+ <% end -%>
+</div>
